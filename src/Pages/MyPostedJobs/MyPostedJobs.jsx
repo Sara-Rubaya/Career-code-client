@@ -3,6 +3,7 @@ import UseAuth from '../../Hooks/UseAuth';
 import JobLists from './JobLists';
 import { jobsCreatedByPromise } from '../../API/JobsApi';
 
+
 const MyPostedJobs = () => {
 
     const {user} = UseAuth();
@@ -14,7 +15,7 @@ const MyPostedJobs = () => {
             <Suspense>
                 <JobLists 
                 jobsCreatedByPromise={jobsCreatedByPromise(user.email)}>
-                    
+
                 </JobLists>
             </Suspense>
         </div>
