@@ -9,12 +9,13 @@ import { myApplicationsPromise } from '../../API/ApplicationsApi';
 const MyApplications = () => {
 
     const {user} = UseAuth();
+    console.log('token firebase token', user.accessToken)
 
     return (
         <div>
              <ApplicationsStats></ApplicationsStats>
              <Suspense fallback={'Loading your applications'}>
-                <ApplicationList   myApplicationsPromise={myApplicationsPromise(user.email)}>
+                <ApplicationList   myApplicationsPromise={myApplicationsPromise(user.email, user.accessToken)}>
                   
                 </ApplicationList>
              </Suspense>
